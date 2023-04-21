@@ -198,7 +198,7 @@ class GPTZZZ:
 
         return new_words
 
-    def apply(self, text, collection='both', synonym_probability=0.5, adjective_probability=0.5):
+    def __call__(self, text, collection='both', synonym_probability=0.5, adjective_probability=0.5):
         if collection == 'zaibacu':
             synonyms = self.zaibacu
         elif collection == 'finnlp':
