@@ -102,7 +102,7 @@ def get_adjectives():
     return adjectives
 
 
-class GPTZZZ:
+class GPTZzz:
     def __init__(self, ignore_quotes=False, use_common_words=True):
         self.ignore_quotes = ignore_quotes
 
