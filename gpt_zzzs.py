@@ -119,6 +119,17 @@ class GPTZzz:
         self.zaibacu = zaibacu
         self.finnlp = finnlp
 
+        both = dict(zaibacu)
+
+        for key, value in finnlp.items():
+            if key in both:
+                if value not in both[key]:
+                    both[key].append(value)
+            else:
+                both[key] = [value]
+
+        self.both = both
+
         self.adjectives = get_adjectives()
     
     def filter_common_words(self, synonyms):
@@ -204,14 +215,7 @@ class GPTZzz:
         elif collection == 'finnlp':
             synonyms = self.finnlp
         elif collection == 'both':
-            synonyms = self.zaibacu
-            
-            for key, value in self.finnlp.items():
-                if key in synonyms:
-                    if value not in synonyms[key]:
-                        synonyms[key].append(value)
-                else:
-                    synonyms[key] = [value]
+            synonyms = self.both
         else:
             raise ValueError('Invalid collection')
 
